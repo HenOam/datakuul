@@ -82,10 +82,10 @@ country_points
 
 
 ```{r}
-ggplot(country_points, aes(country, points, size = price)) + geom_point() + theme_bw() + theme(plot.title = element_text(hjust = 0.5, colour = "steelblue", face = "bold"), axis.text.x = element_text(size = 8, colour = "black", angle = 40, vjust = 1, hjust = 1)) + labs(title = "Wine Points vs Country of production", x = "Country of production", y = "Points")
+ggplot(country_points, aes(country, points)) + geom_boxplot() + theme_bw() + theme(plot.title = element_text(hjust = 0.5, colour = "steelblue", face = "bold"), axis.text.x = element_text(size = 8, colour = "black", angle = 40, vjust = 1, hjust = 1)) + labs(title = "Wine Points vs Country of production", x = "Country of production", y = "Points")
 ```
 
-Australia, France, Italy, Portugal and US produce highest quality wine
+Australia, France, Italy, Portugal and US produce higher quality wine relative to wines from other countries
 
 
 
@@ -148,7 +148,7 @@ max(wine_prod$price)
 wine_prod %>% 
   group_by(country) %>% 
   slice(which.max(price)) %>%
-  ggplot(aes(country, price, size = points)) + geom_point() + theme_bw() + theme(plot.title = element_text(hjust = 0.5, colour = "red", face = "bold"), axis.text.x = element_text(size = 10, colour = "black", angle = 40, vjust = 1, hjust = 1)) + labs(title = "Wine Prices vs Country of production", x = "Country of production", y = "Price")
+  ggplot(aes(country, price, size = points)) + geom_point() + theme_bw() + theme(plot.title = element_text(hjust = 0.5, colour = "red", face = "bold"), axis.text.x = element_text(size = 9, colour = "black", angle = 40, vjust = 1, hjust = 1)) + labs(title = "Wine Prices vs Country of production", x = "Country of production", y = "Price")
 
 ```
 
